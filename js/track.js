@@ -1,15 +1,26 @@
-$( document ).ready(function() {
-    
+$( document ).ready(function() {  
+ 
     $.ajax({
         url: "https://balaleo.000webhostapp.com/ip.php",
         cache: false,
         async:false,       
         success: function(ip){
+          console.log(3);
           var details = getIpDetails(ip);
           var res = postIpDetails(details);
         }
       });
 
+
+      $.ajax({
+        url: "https://balaleo.000webhostapp.com/show.php",
+        cache: false,
+        async:false,       
+        success: function(contentFromAjax){
+          $("#content").html(contentFromAjax);
+        }
+      });
+ 
 });
 
 
